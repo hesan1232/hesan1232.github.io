@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>搭建自己的博客 | Hexo</title>
+  <title>网页中表格数据导出 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前置条件：node.js git 下载hexo框架 利用框架生成骨架 自己就可以新建v">
+  <meta name="description" content="阅读前说明：本文将用于说明记录如何将网页中的表格元素导出去为xlsx文件， 所使用场景为vue2、element-ui下利用第三方包导出 其中也包括了一些常见问题与报错，如果你遇到了相似的问题可以从下方得到答案 网页表格数据的导出元素基础使用前期准备：安装依赖：xlsx、file-saver： 12npm install xlsx --savenpm install file-saver --sa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建自己的博客">
-<meta property="og:url" content="http://example.com/2022/09/18/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="网页中表格数据导出">
+<meta property="og:url" content="http://example.com/2022/09/19/%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前置条件：node.js git 下载hexo框架 利用框架生成骨架 自己就可以新建v">
+<meta property="og:description" content="阅读前说明：本文将用于说明记录如何将网页中的表格元素导出去为xlsx文件， 所使用场景为vue2、element-ui下利用第三方包导出 其中也包括了一些常见问题与报错，如果你遇到了相似的问题可以从下方得到答案 网页表格数据的导出元素基础使用前期准备：安装依赖：xlsx、file-saver： 12npm install xlsx --savenpm install file-saver --sa">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-09-18T12:39:19.000Z">
-<meta property="article:modified_time" content="2022-09-18T12:47:58.554Z">
+<meta property="article:published_time" content="2022-09-19T12:39:14.000Z">
+<meta property="article:modified_time" content="2022-09-19T13:32:34.464Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="element-ui">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -154,27 +155,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-搭建自己的博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-网页中表格数据导出" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      搭建自己的博客
+      网页中表格数据导出
     </h1>
   
 
         
-        <a href="/2022/09/18/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2022-09-18T12:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-18</time>
+        <a href="/2022/09/19/%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA/" class="archive-article-date">
+  	<time datetime="2022-09-19T12:39:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前置条件：node.js git 下载hexo框架 利用框架生成骨架 自己就可以新建v</p>
+        <p>阅读前说明：本文将用于说明记录如何将网页中的表格元素导出去为xlsx文件，</p>
+<p>所使用场景为vue2、element-ui下利用第三方包导出</p>
+<p>其中也包括了一些常见问题与报错，如果你遇到了相似的问题可以从下方得到答案</p>
+<h1 id="网页表格数据的导出元素"><a href="#网页表格数据的导出元素" class="headerlink" title="网页表格数据的导出元素"></a>网页表格数据的导出元素</h1><h2 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h2><h3 id="前期准备："><a href="#前期准备：" class="headerlink" title="前期准备："></a>前期准备：</h3><p>安装依赖：xlsx、file-saver：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install xlsx --save</span><br><span class="line">npm install file-saver --save</span><br></pre></td></tr></table></figure>
+
+<p>安装依赖时由于npm包版本和node版本不一致可能报错</p>
+<p>使用npm7 及更高的版本，对等依赖问题视为错误，而它们通常只是版本 6 中的警告。 此时可使用–legacy-peer-deps</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --legacy-peer-deps</span><br></pre></td></tr></table></figure>
+
+<p>也可设置为永久安装配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set legacy-peer-deps true</span><br></pre></td></tr></table></figure>
+
+<p>发生错误原因</p>
+<p>npm 升级到 7.x以上后，会出现上游依赖冲突</p>
+<p>–legacy-peer-deps：</p>
+<p>安装时忽略所有 peerDependencie，</p>
+<p>默认使用npm 4-6版本的安装模式，</p>
+<p>安装过程中是会跳过对等依赖项</p>
+<h3 id="包的引入与挂载"><a href="#包的引入与挂载" class="headerlink" title="包的引入与挂载"></a>包的引入与挂载</h3><p>入口文件引入包(main.js)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue中导出excel表格模板</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">FileSaver</span> <span class="keyword">from</span> <span class="string">&#x27;file-saver&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="variable constant_">XLSX</span> <span class="keyword">from</span> <span class="string">&#x27;xlsx&#x27;</span></span><br><span class="line"><span class="comment">//注意在vue引入后才能挂载到原型上</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$FileSaver</span> = <span class="title class_">FileSaver</span>; <span class="comment">//设置全局</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$XLSX</span> = <span class="variable constant_">XLSX</span>; <span class="comment">//设置全局</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="包的使用"><a href="#包的使用" class="headerlink" title="包的使用"></a>包的使用</h3><p>为表单打上id和ref标记</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table</span><br><span class="line">    id=&quot;table&quot;</span><br><span class="line">    ref=&quot;table&quot;</span><br><span class="line">    :data=&quot;list&quot;</span><br><span class="line">&gt;&lt;/el-table&gt;</span><br></pre></td></tr></table></figure>
+
+<p>定义导出按钮</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-button class=&quot;btn-seal&quot; @click=&quot;exportData&quot;&gt;导出表格&lt;/el-button&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="一般使用"><a href="#一般使用" class="headerlink" title="一般使用"></a>一般使用</h4><p>如果表单没有固定列（el-table的fixed属性来让某一列固定）</p>
+<p>点击事件直接调用exportTable()函数即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//导出表格处理函数</span><br><span class="line">    exportData() &#123;</span><br><span class="line">        this.exportTable()</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="导出表格具体操作"><a href="#导出表格具体操作" class="headerlink" title="导出表格具体操作"></a>导出表格具体操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//具体函数处理</span><br><span class="line">exportTable()&#123;</span><br><span class="line">//通过id找到所要导出表格元素</span><br><span class="line">  let tables = document.getElementById(&quot;table&quot;);</span><br><span class="line">    let table_book = this.$XLSX.utils.table_to_book(tables);</span><br><span class="line">    let table_write = this.$XLSX.write(table_book, &#123;</span><br><span class="line">      bookType: &quot;xlsx&quot;,</span><br><span class="line">      bookSST: true,</span><br><span class="line">      type: &quot;array&quot;</span><br><span class="line">    &#125;);</span><br><span class="line">    try &#123;</span><br><span class="line">    //尝试导出名字为测试表.xlsx的表格</span><br><span class="line">      this.$FileSaver.saveAs(</span><br><span class="line">        new Blob([table_write], &#123; type: &quot;application/octet-stream&quot; &#125;),</span><br><span class="line">        &quot;测试表.xlsx&quot;</span><br><span class="line">      );</span><br><span class="line">    &#125; catch (e) &#123;</span><br><span class="line">      if (typeof console !== &quot;undefined&quot;) console.log(e, table_write);</span><br><span class="line">    &#125;</span><br><span class="line">    //将文件返回</span><br><span class="line">    return table_write;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h3><p>当表格元素使用了固定列时导出xlsx会出现数据重复的情况</p>
+<p>需要下方代码进行处理</p>
+<h4 id="原因：ele-ui固定列采用的是复制两份表格。通过一个隐藏一个显示来实现交互效果。"><a href="#原因：ele-ui固定列采用的是复制两份表格。通过一个隐藏一个显示来实现交互效果。" class="headerlink" title="原因：ele-ui固定列采用的是复制两份表格。通过一个隐藏一个显示来实现交互效果。"></a>原因：ele-ui固定列采用的是复制两份表格。通过一个隐藏一个显示来实现交互效果。</h4><h4 id="当导出el-table-就会将两个div内的table都导出，导致数据重复"><a href="#当导出el-table-就会将两个div内的table都导出，导致数据重复" class="headerlink" title="当导出el-table 就会将两个div内的table都导出，导致数据重复"></a>当导出el-table 就会将两个div内的table都导出，导致数据重复</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//导出表格处理函数</span><br><span class="line">    exportData() &#123;</span><br><span class="line">      //判断有无固定列table</span><br><span class="line">      var fixTable = document.querySelector(&#x27;.el-table__fixed-right&#x27;);</span><br><span class="line">      if (fixTable) &#123;</span><br><span class="line">        //有固定列，先删除固定列的Table</span><br><span class="line">        document.querySelector(&#x27;#table&#x27;).removeChild(fixTable);</span><br><span class="line">        this.exportTable()</span><br><span class="line">        document.querySelector(&#x27;#table&#x27;).appendChild(fixTable);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        //没有固定列table 直接导出Excel</span><br><span class="line">        this.exportTable()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="总结：先引包，在入口文件中引入，挂载到vue原型上，后在table元素打上id标记，后定义处理和导出函数，利用包中的方法将表格导出"><a href="#总结：先引包，在入口文件中引入，挂载到vue原型上，后在table元素打上id标记，后定义处理和导出函数，利用包中的方法将表格导出" class="headerlink" title="总结：先引包，在入口文件中引入，挂载到vue原型上，后在table元素打上id标记，后定义处理和导出函数，利用包中的方法将表格导出"></a>总结：先引包，在入口文件中引入，挂载到vue原型上，后在table元素打上id标记，后定义处理和导出函数，利用包中的方法将表格导出</h3><h2 id="二-扩展使用"><a href="#二-扩展使用" class="headerlink" title="二.扩展使用"></a>二.扩展使用</h2><ul>
+<li>数据分页情况下全部导出数据：需在html中添加表格并隐藏，将这个表格作为隐式的导出组件。</li>
+<li>数据多选导出数据：将勾选的数据插入至隐式数据表格中，导出即可。</li>
+</ul>
 
       
 
@@ -204,6 +248,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">element-ui</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -254,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/09/18/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/09/19/%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,18 +323,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/09/19/%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          网页中表格数据导出
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/09/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2022/09/18/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搭建自己的博客</div>
       <i class="icon-circle-right"></i>
     </a>
   
