@@ -1,6 +1,7 @@
+http://example.com/2022/09/18/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/
+http://example.com/2022/10/22/js%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E9%9B%A8%E6%95%88%E6%9E%9C/
 http://example.com/2022/10/16/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/
 http://example.com/2022/09/18/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/
-http://example.com/2022/09/18/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/
 http://example.com/link/index.html
 http://example.com/tags/index.html
 http://example.com/categories/index.html
@@ -8,5 +9,6 @@ http://example.com/2022/10/08/%E4%B8%89%E8%81%94%E8%AE%A1%E6%95%B0%E5%99%A8%E8%8
 http://example.com/2022/09/19/%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA/
 http://example.com/
 http://example.com/tags/hexo/
-http://example.com/tags/element-ui/
 http://example.com/tags/javascript/
+http://example.com/tags/canvas/
+http://example.com/tags/element-ui/
