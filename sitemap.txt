@@ -11,5 +11,5 @@ http://example.com/
 http://example.com/tags/hexo/
 http://example.com/tags/javascript/
 http://example.com/tags/canvas/
-http://example.com/tags/vue/
 http://example.com/tags/element-ui/
+http://example.com/tags/vue/
