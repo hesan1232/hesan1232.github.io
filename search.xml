@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>服务器状态码不同区别</title>
+      <link href="/2022/11/07/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8A%B6%E6%80%81%E7%A0%81%E4%B8%8D%E5%90%8C%E5%8C%BA%E5%88%AB/"/>
+      <url>/2022/11/07/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8A%B6%E6%80%81%E7%A0%81%E4%B8%8D%E5%90%8C%E5%8C%BA%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<p>读前说明</p><p>本篇文章简单的记录了后台服务器返回的不同http状态码的含义</p><p>使用场景</p><p>后端不同处理结果返回不同的状态码。前台接收到数据也应该了解不同状态码的区别</p><p>预期结果</p><p>了解到了不同状态码地区别</p><h1 id="服务器状态码不同区别"><a href="#服务器状态码不同区别" class="headerlink" title="服务器状态码不同区别"></a>服务器状态码不同区别</h1><p>信息响应(100–199)，<br>成功响应(200–299)，<br>重定向(300–399)，<br>客户端错误(400–499)<br>服务器错误 (500–599)</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+            <tag> node.js </tag>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue中全局点击事件节流</title>
       <link href="/2022/11/02/vue%E4%B8%AD%E5%85%A8%E5%B1%80%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81/"/>
       <url>/2022/11/02/vue%E4%B8%AD%E5%85%A8%E5%B1%80%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81/</url>
