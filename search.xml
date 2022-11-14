@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>vue2和vue3生命周期分析与对比</title>
+      <link href="/2022/11/14/vue2%E5%92%8Cvue3%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%88%86%E6%9E%90%E4%B8%8E%E5%AF%B9%E6%AF%94/"/>
+      <url>/2022/11/14/vue2%E5%92%8Cvue3%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%88%86%E6%9E%90%E4%B8%8E%E5%AF%B9%E6%AF%94/</url>
+      
+        <content type="html"><![CDATA[<p>读前说明</p><p>本篇文章记录了如何在vue2、vue3中生命周期的学习和两者直接的对比</p><p>使用场景</p><p>在学习过程中能够系统理解vue2和vue3的生命周期</p><p>预期结果</p><p>系统理解vue2和vue3的生命周期</p><h1 id="vue2和vue3生命周期分析与对比"><a href="#vue2和vue3生命周期分析与对比" class="headerlink" title="vue2和vue3生命周期分析与对比"></a>vue2和vue3生命周期分析与对比</h1><h2 id="vue2"><a href="#vue2" class="headerlink" title="vue2"></a>vue2</h2><p><img src="https://cdn.jsdelivr.net/gh/hesan1232/picgoImage/image/vue2-lifecycle.png"></p><p>依图所言，在vue2中一共存在八个生命周期其都是成对存在，分别是 <strong>beforeCreate和created</strong>、 <strong>beforeMount和mounted</strong>、 <strong>beforeUpdate和updated</strong>、 <strong>beforeDestroy和bestroyed</strong></p><p>虽然周期很多但是常用的只有两三个</p><p>created和mounted：组件发请求获取数据，</p><p>mounted:操作dom元素</p><p>beforDestroy：销毁组件前清除定时器</p><p>生命周期面试问题：</p><p>单纯的数据展示，在哪个生命周期请求最好，</p><p>答案：<strong>created</strong>，能早当然早，何必非得等到 <strong>mounted</strong>的时候再请求呢，那什么情况下需要在 <strong>mounted</strong> 中请求呢，就是你需要操作 dom 的时候，这一块也是面试过程中经常会被问到的一个问题，需要仔细理解。</p><p>特殊函数</p><p>nextTick</p><h2 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> 生命周期 </tag>
+            
+            <tag> vue2 </tag>
+            
+            <tag> vue3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>服务器状态码不同区别</title>
       <link href="/2022/11/07/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8A%B6%E6%80%81%E7%A0%81%E4%B8%8D%E5%90%8C%E5%8C%BA%E5%88%AB/"/>
       <url>/2022/11/07/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8A%B6%E6%80%81%E7%A0%81%E4%B8%8D%E5%90%8C%E5%8C%BA%E5%88%AB/</url>
