@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>原生js实用代码</title>
+      <link href="/2022/11/21/%E5%8E%9F%E7%94%9Fjs%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/"/>
+      <url>/2022/11/21/%E5%8E%9F%E7%94%9Fjs%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<p>读前说明</p><p>本篇文章记录了如何在vue2、vue3中生命周期的学习和两者直接的对比</p><p>使用场景</p><p>在学习过程中能够系统理解vue2和vue3的生命周期</p><p>预期结果</p><p>原生的js代码使用效果</p><h1 id="原生js使用代码"><a href="#原生js使用代码" class="headerlink" title="原生js使用代码"></a>原生js使用代码</h1><h2 id="随机字符串"><a href="#随机字符串" class="headerlink" title="随机字符串"></a>随机字符串</h2><p>实现思路：随机数后转换进制后截取</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Math</span>.<span class="title function_">random</span>().<span class="title function_">toString</span>(<span class="number">36</span>).<span class="title function_">slice</span>(<span class="number">4</span>)</span><br></pre></td></tr></table></figure><h2 id="生成随机颜色"><a href="#生成随机颜色" class="headerlink" title="生成随机颜色"></a>生成随机颜色</h2><p>实现思路：随机数后转换进制后截取转换</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Math</span>.<span class="title function_">random</span>().<span class="title function_">toString</span>(<span class="number">16</span>).<span class="title function_">slice</span>(<span class="number">2</span>,<span class="number">8</span>).<span class="title function_">padEnd</span>(<span class="number">6</span>,<span class="string">&#x27;0&#x27;</span>)</span><br></pre></td></tr></table></figure><h2 id="删除数组中的重复值"><a href="#删除数组中的重复值" class="headerlink" title="删除数组中的重复值"></a>删除数组中的重复值</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">removeDuplicates</span>=(<span class="params">arr</span>)=&gt;[...<span class="keyword">new</span> <span class="title class_">Set</span>(arr)]</span><br></pre></td></tr></table></figure><h2 id="删除数组中的虚假值"><a href="#删除数组中的虚假值" class="headerlink" title="删除数组中的虚假值"></a>删除数组中的虚假值</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">removeFalsy</span>=(<span class="params">arr</span>)=&gt; arr.<span class="title function_">filter</span>(<span class="title class_">Boolean</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">removeFalsy</span>([<span class="number">1</span>,<span class="title class_">NaN</span>,<span class="string">&#x27;&#x27;</span>,<span class="literal">false</span>,<span class="literal">undefined</span>,<span class="literal">null</span>]))</span><br></pre></td></tr></table></figure><h2 id="求参数平均数"><a href="#求参数平均数" class="headerlink" title="求参数平均数"></a>求参数平均数</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">average</span>=(<span class="params">...args</span>)=&gt;args.<span class="title function_">reduce</span>(<span class="function">(<span class="params">a,b</span>)=&gt;</span>a+b/args.<span class="property">length</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">average</span>(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">8</span>]));</span><br></pre></td></tr></table></figure><h2 id="计算两日期相距天数"><a href="#计算两日期相距天数" class="headerlink" title="计算两日期相距天数"></a>计算两日期相距天数</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">diffDays</span>=(<span class="params">data,otherData</span>)=&gt;<span class="title class_">Math</span>.<span class="title function_">ceil</span>(<span class="title class_">Math</span>.<span class="title function_">abs</span>(data-otherData)/(<span class="number">1000</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>))</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">diffDays</span>(<span class="keyword">new</span> <span class="title class_">Date</span>(),<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;2023-2-1&#x27;</span>)))</span><br></pre></td></tr></table></figure><h2 id="获取指定日期是一年中的那一天"><a href="#获取指定日期是一年中的那一天" class="headerlink" title="获取指定日期是一年中的那一天"></a>获取指定日期是一年中的那一天</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">dayOfyear</span>=(<span class="params">data</span>)=&gt;<span class="title class_">Math</span>.<span class="title function_">floor</span>((data-<span class="keyword">new</span> <span class="title class_">Date</span>(data.<span class="title function_">getFullYear</span>(),<span class="number">0</span>,<span class="number">0</span>))/(<span class="number">1000</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>))</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">dayOfyear</span>(<span class="keyword">new</span> <span class="title class_">Date</span>()))</span><br></pre></td></tr></table></figure><h2 id="将RGB颜色转换为十六进制"><a href="#将RGB颜色转换为十六进制" class="headerlink" title="将RGB颜色转换为十六进制"></a>将RGB颜色转换为十六进制</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">rgbToHex</span>=(<span class="params">r,g,b</span>)=&gt;<span class="string">&quot;#&quot;</span>+((<span class="number">1</span>&lt;&lt;<span class="number">24</span>)+(r&lt;&lt;<span class="number">16</span>)+(g&lt;&lt;<span class="number">8</span>)+b).<span class="title function_">toString</span>(<span class="number">16</span>).<span class="title function_">slice</span>(<span class="number">1</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">rgbToHex</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>))</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+            <tag> 实用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue2和vue3生命周期分析与对比</title>
       <link href="/2022/11/14/vue2%E5%92%8Cvue3%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%88%86%E6%9E%90%E4%B8%8E%E5%AF%B9%E6%AF%94/"/>
       <url>/2022/11/14/vue2%E5%92%8Cvue3%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%88%86%E6%9E%90%E4%B8%8E%E5%AF%B9%E6%AF%94/</url>
@@ -62,9 +83,9 @@
       
         <tags>
             
-            <tag> vue </tag>
-            
             <tag> javascript </tag>
+            
+            <tag> vue </tag>
             
         </tags>
       
