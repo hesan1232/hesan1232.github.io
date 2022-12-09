@@ -18,7 +18,7 @@ http://example.com/tags/vue/
 http://example.com/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/
 http://example.com/tags/vue2/
 http://example.com/tags/vue3/
+http://example.com/tags/%E5%AE%9E%E7%94%A8/
 http://example.com/tags/element-ui/
 http://example.com/tags/node-js/
 http://example.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/
-http://example.com/tags/%E5%AE%9E%E7%94%A8/
